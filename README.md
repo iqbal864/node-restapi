@@ -1,2 +1,2 @@
 # node-restapi
-Express.js Rest API MVC dengan database MySQL
+Express.js Rest API dengan database MySQL
