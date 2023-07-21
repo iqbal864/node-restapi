@@ -21,7 +21,7 @@ const createNewUser = async (req, res) => {
   try {
     await userModel.createNewUser(body);
     res.json({
-      message: "Post data user sukses",
+      message: "Create data user sukses",
       data: body,
     });
   } catch (error) {
@@ -32,7 +32,31 @@ const createNewUser = async (req, res) => {
   }
 };
 
+const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const body = req.body;
+  try {
+    await userModel.updateUser(body, id);
+    res.json({
+      message: "Update data user sukses",
+      data: {
+        id,
+        body,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error!",
+      errorMessage: error,
+    });
+  }
+};
+
+const deleteUser = async (req, res) => {};
+
 module.exports = {
   getAllUsers,
   createNewUser,
+  updateUser,
+  deleteUser,
 };
